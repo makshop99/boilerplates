@@ -1,12 +1,12 @@
 {
 	"info": {
-		"_postman_id": "59e2e723-07b1-4728-88d7-b6a356ea4fdf",
-		"name": "cbk-tekton Testcolletion",
+		"_postman_id": "79436b64-3019-4b8b-aff9-218e85a4bc0c",
+		"name": "tekton-test",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "TeamCity API call",
+			"name": "Postman Test01",
 			"event": [
 				{
 					"listen": "test",
@@ -14,6 +14,9 @@
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {",
 							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
 							"});"
 						],
 						"type": "text/javascript"
@@ -24,19 +27,19 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://teamcity.intranet.commerzbank.com:8443/app/rest/server",
-					"protocol": "https",
+					"raw": "postman-echo.com/get?key01=value01",
 					"host": [
-						"teamcity",
-						"intranet",
-						"commerzbank",
+						"postman-echo",
 						"com"
 					],
-					"port": "8443",
 					"path": [
-						"app",
-						"rest",
-						"server"
+						"get"
+					],
+					"query": [
+						{
+							"key": "key01",
+							"value": "value01"
+						}
 					]
 				}
 			},
